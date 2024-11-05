@@ -24,14 +24,18 @@
                         var response = context.Response.Body.As<JObject>();
                         var team = response["team"];
 
-                        return {
-                            "id": team["id"],
-                            "location": team["location"],
-                            "abbreviation": team["abbreviation"],
-                            "displayName": team["displayName"],
-                            "shortName": team["shortName"],
-                            "isActive": team["isActive"]
-                        };
+
+                        var body =  new JObject();
+
+                        body.Add(new JProperty("id", ((string) team["id"])));
+                        body.Add(new JProperty("location", ((string) team["location"])));
+                        body.Add(new JProperty("abbreviation", ((string) team["abbreviation"])));
+
+                        body.Add(new JProperty("displayName", ((string) team["displayName"])));
+                        body.Add(new JProperty("shortName",((string) team["shortName"]) ));
+
+
+                        return body.ToString();
 
                     }
                 </set-body>
