@@ -13,6 +13,7 @@ paths:
   /teams:
     get:
       summary: GetTeams
+      operationId: GetTeams
       tags:
         - "Espn Nba"
       responses:
