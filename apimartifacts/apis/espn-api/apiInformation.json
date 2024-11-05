@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "path": "nba",
+    "apiRevision": "1",
+    "authenticationSettings": {},
+    "contact": {
+      "email": "israel.souza@summit-bra",
+      "name": "Israel Souza"
+    },
+    "description": "ESPN HIDDEN API - NBA",
+    "isCurrent": true,
+    "displayName": "ESPN NBA API",
+    "protocols": [
+      "https"
+    ],
+    "serviceUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/",
+    "subscriptionKeyParameterNames": {
+      "header": "Ocp-Apim-Subscription-Key",
+      "query": "subscription-key"
+    },
+    "subscriptionRequired": true
+  }
+}
