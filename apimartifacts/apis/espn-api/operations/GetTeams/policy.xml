@@ -1,0 +1,47 @@
+<policies>
+	<inbound></inbound>
+	<backend>
+		<forward-request />
+	</backend>
+	<outbound>
+        <choose>
+            <when condition="@(context.Response.StatusCode == 200)">
+                <set-body>
+                    @{
+                        var response = context.Response.Body.As<JObject>();
+
+                        var rawTeams =  response["sports"][0]["leagues"]["teams"];
+
+                        var teamsArray =  new JArray();
+
+                        foreach(var rawTeam in rawTeams)
+                        {
+
+                            var team = rawTeam["team"];
+
+                            var logoUrl =  team["logos"][0]["href"];
+
+                            var body =  new JObject();
+
+                            body.Add(new JProperty("id", ((string) team["id"])));
+                            body.Add(new JProperty("location", ((string) team["location"])));
+                            body.Add(new JProperty("abbreviation", ((string) team["abbreviation"])));
+
+                            body.Add(new JProperty("displayName", ((string) team["displayName"])));
+                            body.Add(new JProperty("shortName",((string) team["shortDisplayName"]) ));
+
+                            body.Add(new JProperty("isActive", ((bool) team["isActive"])));
+
+                            body.Add(new JProperty("logoUrl", ((string) logoUrl)));
+
+
+                            teamsArray.Add(body);
+                        }
+
+                        return teamsArray.ToString();
+                    }
+                </set-body>
+            </when>
+        </choose>
+    </outbound>
+</policies>
