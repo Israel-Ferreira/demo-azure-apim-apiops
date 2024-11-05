@@ -10,7 +10,7 @@ servers:
   - url: https://apimdemoapiops.azure-api.net/nba
 
 paths:
-  /nba/teams:
+  /teams:
     get:
       summary: GetTeams
       tags:
