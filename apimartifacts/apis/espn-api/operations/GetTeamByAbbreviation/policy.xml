@@ -16,5 +16,26 @@
 	<backend>
 		<forward-request />
 	</backend>
-	<outbound></outbound>
+	<outbound>
+        <choose>
+            <when condition="@(context.Response.StatusCode == 200)">
+                <set-body>
+                    @{
+                        var response = context.Response.Body.As<JObject>();
+                        var team = response["team"];
+
+                        return {
+                            "id": team["id"],
+                            "location": team["location"],
+                            "abbreviation": team["abbreviation"],
+                            "displayName": team["displayName"],
+                            "shortName": team["shortName"],
+                            "isActive": team["isActive"]
+                        };
+
+                    }
+                </set-body>
+            </when>
+        </choose>
+    </outbound>
 </policies>
