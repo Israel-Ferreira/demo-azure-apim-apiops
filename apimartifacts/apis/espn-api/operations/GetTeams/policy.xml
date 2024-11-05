@@ -10,7 +10,7 @@
                     @{
                         var response = context.Response.Body.As<JObject>();
 
-                        var rawTeams =  response["sports"][0]["leagues"]["teams"];
+                        var rawTeams =  response["sports"][0]["leagues"][0]["teams"];
 
                         var teamsArray =  new JArray();
 
