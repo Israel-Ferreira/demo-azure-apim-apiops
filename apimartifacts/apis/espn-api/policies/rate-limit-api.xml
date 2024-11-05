@@ -1,5 +1,0 @@
-<policies>
-    <inbound>
-        <rate-limit calls="10" renewal-period="60" />
-    </inbound>
-</policies>
