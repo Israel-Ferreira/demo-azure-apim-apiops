@@ -12,6 +12,9 @@ servers:
 paths:
   /nba/teams:
     get:
+      summary: GetTeams
+      tags:
+        - "Espn Nba"
       responses:
         '200':
           description: Retorna uma lista com todos os times da Liga
@@ -24,6 +27,10 @@ paths:
   
   /nba/teams/{team}:
     get:
+      operationId: GetTeamByAbbreviation
+      summary: GetTeamByAbbreviation
+      tags:
+        - "Espn Nba"
       parameters:
         - in: path
           name: team
