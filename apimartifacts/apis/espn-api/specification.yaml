@@ -25,7 +25,7 @@ paths:
                   $ref: "#/components/schemas/TeamSchema"
 
   
-  /nba/teams/{team}:
+  /teams/{team}:
     get:
       operationId: GetTeamByAbbreviation
       summary: GetTeamByAbbreviation
