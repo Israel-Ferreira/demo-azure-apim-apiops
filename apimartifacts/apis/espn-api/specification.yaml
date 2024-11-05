@@ -85,7 +85,7 @@ components:
         isActive:
           type: boolean
         
-        logo_url: 
+        logoUrl: 
           type: string
           description: Link do Logo da Equipe
           example: https://a.espncdn.com/i/teamlogos/nba/500/bkn.png

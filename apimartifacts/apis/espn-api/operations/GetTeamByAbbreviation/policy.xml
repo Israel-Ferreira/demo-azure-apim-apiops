@@ -25,6 +25,8 @@
                         var team = response["team"];
 
 
+                        var logoUrl =  team["logos"][0]["href"];
+
                         var body =  new JObject();
 
                         body.Add(new JProperty("id", ((string) team["id"])));
@@ -32,7 +34,11 @@
                         body.Add(new JProperty("abbreviation", ((string) team["abbreviation"])));
 
                         body.Add(new JProperty("displayName", ((string) team["displayName"])));
-                        body.Add(new JProperty("shortName",((string) team["shortName"]) ));
+                        body.Add(new JProperty("shortName",((string) team["shortDisplayName"]) ));
+
+                        body.Add(new JProperty("isActive", ((bool) team["isActive"])));
+
+                        body.Add(new JProperty("logoUrl", ((string) logoUrl)));
 
 
                         return body.ToString();
